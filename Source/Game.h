@@ -1,7 +1,13 @@
 
 class CGame
 {
-public:
+public: enum Estado{
+			ESTADO_INICIANDO,
+			ESTADO_MENU,
+			ESTADO_JUGANDO,
+			ESTADO_TERMINANDO,
+			ESTADO_FINALIZANDO
+		};
 	bool Start();
 	static CGame instanceGame;
 
@@ -9,5 +15,5 @@ public:
 	void Finalize();
 
 private:
-	int estado;
+	Estado estado;
 };
