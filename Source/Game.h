@@ -1,7 +1,8 @@
 
 class CGame
 {
-public: enum Estado{
+public: 
+	enum Estado{
 			ESTADO_INICIANDO,
 			ESTADO_MENU,
 			ESTADO_JUGANDO,

@@ -3,7 +3,7 @@
 #include "Game.h"
 
 CGame::CGame(){
-	estado == 0;
+	estado == 0;//ACT2: Esto esta mal, estas haciendo una comparacion, lo que debes de hacer es inicializar tu estado.
 }
 
 // Con esta función eliminaremos todos los elementos en pantalla
@@ -18,7 +18,7 @@ bool CGame::Start()
 	while (salirJuego == false){
             
 		//Maquina de estados
-		switch(estado){
+		switch(estado){////ACT 2: No suficiente, te falto agregar 2 estados mas de los 5 que les inique.
 			case Estado::ESTADO_INICIANDO:
 				break;
 				case Estado::ESTADO_JUGANDO:
