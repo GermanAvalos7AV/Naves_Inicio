@@ -6,8 +6,6 @@
 CGame::CGame()
 {
 	estado = ESTADO_INICIANDO;
-	//Corregido Maestro//
-
 }
 
 // Con esta función eliminaremos todos los elementos en pantalla
