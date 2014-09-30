@@ -10,6 +10,7 @@ CGame::CGame(){
 	atexit(SDL_Quit);
 
 	estado = ESTADO_INICIANDO;
+	///ACT3: Mal, el codigo de abajo debe de ir en el metodo inicializando.
 	if (SDL_Init( SDL_INIT_VIDEO )){
 	printf("Error %s ", SDL_GetError());
 	exit(EXIT_FAILURE);
