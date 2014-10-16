@@ -69,12 +69,15 @@
   <ItemGroup>
     <ClCompile Include="..\Source\main.cpp" />
     <ClCompile Include="..\Source\Game.cpp" />
-    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="..\Source\Nave.cpp" />
+    <ClCompile Include="..\Source\Sprite.cpp" />
+    <ClCompile Include="SpriteDef.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\Config.h" />
-    <ClInclude Include="..\Source\Game.h" />
-    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="..\Source\Nave.h" />
+    <ClInclude Include="..\Source\Sprite.h" />
+    <ClInclude Include="SpriteDef.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Ejecutable\Readme.txt" />
