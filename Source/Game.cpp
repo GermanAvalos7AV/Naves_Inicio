@@ -10,6 +10,25 @@ CGame::CGame(){
 	estado = ESTADO_INICIANDO;//ACT2: Mal, aqui debes de poner tu estado inicial, por eso te marcara error.
 	atexit(SDL_Quit);
 
+	///ACT3: Mal, este metodo no va aqui.
+	//if (SDL_Init(SDL_INIT_VIDEO)){
+	//	printf("Error %S ", SDL_GetError());
+	//	exit (EXIT_FAILURE);
+	//}
+	//screen = SDL_SetVideoMode ( WIDTH_SCREEN, HEIGHT_SCREEN, 24, SDL_SWSURFACE );
+
+	//if (screen == NULL){
+	//	printf("Error %s", SDL_GetError());
+	//	exit(EXIT_FAILURE);
+	//}
+	//SDL_Flip (screen); // este codigo estara provicionalmente aqui.
+	//SDL_WM_SetCaption( "Mi Primer Juego", NULL);
+	//nave= new Sprite();
+	//nave->cargarImagen("../Data/MiNave.bmp");
+}
+
+///ACT3: Mal, falto crear este metodo
+void CGame::Iniciando(){
 	if (SDL_Init(SDL_INIT_VIDEO)){
 		printf("Error %S ", SDL_GetError());
 		exit (EXIT_FAILURE);
@@ -20,8 +39,9 @@ CGame::CGame(){
 		printf("Error %s", SDL_GetError());
 		exit(EXIT_FAILURE);
 	}
-	SDL_Flip (screen); // este codigo estara provicionalmente aqui.
+	
 	SDL_WM_SetCaption( "Mi Primer Juego", NULL);
+
 	nave= new Sprite();
 	nave->cargarImagen("../Data/MiNave.bmp");
 }
@@ -56,10 +76,11 @@ bool CGame::Start()
 			SDL_BlitSurface(nave, NULL, screen, NULL);
 			SDL_FreeSurface(nave);
 			*/
-
-		case Estado::ESTADO_MENU:	//MENU
 			Iniciando();
 			estado=ESTADO_MENU;
+			break;
+		case Estado::ESTADO_MENU:	//MENU
+
 			break;
 		case Estado::ESTADO_JUGANDO:	//JUGAR	
 			break;
@@ -73,6 +94,7 @@ bool CGame::Start()
 		SDL_Flip(screen); //imprime en pantalla variable screen
 		return true;
 	}
+}
 
 
 
