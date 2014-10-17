@@ -22,11 +22,9 @@ public:
 		ESTADO_FINALIZADO, 
 	};
 
-		private:
-		void Iniciando();
-		SDL_Surface * screen;
-		Sprite * nave;
-		Estado estado;
-
-
+private:
+	void Iniciando();
+	SDL_Surface * screen;
+	Sprite * nave;
+	Estado estado;
 };
