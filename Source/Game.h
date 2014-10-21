@@ -1,6 +1,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
-#include "Sprite.h"
+#include "Nave.h"
 
 class CGame
 {
@@ -24,14 +24,13 @@ public:
 
 private:
 	void Iniciando();
+	
 
-	Uint8 *keys;//esta variable nos servira paea ver si determinada tecla
-	SDL_Event event;//La Variaevent de tipo evento de SDL Nos Sirve para
-
+	Uint8 *keys;//esta variable nos servira para ver las teclas
+	SDL_Event event;//La variable event de tipo evento de SDL nos sirve para
 	SDL_Surface *screen;
-	Sprite * nave;
+	Nave * nave;
 	Estado estado;
 
 
 };
-

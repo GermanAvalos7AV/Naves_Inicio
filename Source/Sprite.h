@@ -1,10 +1,7 @@
+#ifndef _SPRITE_H_
+#define _SPRITE_H_
 #include <SDL.h>
 #include "SpriteDef.h"
-
-
-#ifndef _SPRITE_H_//evitar la redundancia
-#define _SPRITE_H_
-
 
 class Sprite{
 	SDL_Surface *image;
@@ -16,8 +13,8 @@ public:
 	void PintarModulo(int id, int x, int y);
 	Sprite(SDL_Surface * screen);
 	~Sprite();
-	int WidthImage();
-	int HeighImage();
+	int WidthModule(int id);
+	int HeightModule(int id);
 	
 };
 #endif
