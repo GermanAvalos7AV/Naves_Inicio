@@ -1,34 +1,40 @@
 #include "Nave.h"
 #include "Config.h"
 #include "Sprite.h"
-Nave::Nave(SDL_Surface * screen, char * rutaImagen)
-{
+
+Nave::Nave(SDL_Surface * screen, char * rutaImagen, int x, int y){
 	sprite = new Sprite(screen);
 	sprite->CargarImagen(rutaImagen);
-	x = (WIDTH_SCREEN / 2) - (sprite->WidthModule(0)/ 2);
-	y = (HEIGHT_SCREEN-80)-(sprite->HeightModule(0));
+	w=sprite->WidthModule(0);
+	h=sprite->HeightModule(0);
+
+	this->x=x; 
+	this->y=y; 
 }
-Nave::~Nave()
-	{
-		delete sprite;
-	}
-void Nave::Pintar()
-	{
-		sprite->PintarModulo(0, x, y);
-	}
-void Nave::MoverDerecha(int posicion)
-{
+Nave::~Nave(){
+	delete sprite;
+}
+void Nave::Pintar(){
+	sprite->PintarModulo(0,x,y);
+}
+void Nave::MoverDerecha(int posicion){
 	x += posicion;
 }
-void Nave::MoverIzquierda(int posicion)
-{
-	x -= posicion;
+int Nave::obtenerX(){
+	return x;
 }
-void Nave::MoverArriba(int posicion)
-{
-	y -= posicion;
+int Nave::obtenerY(){
+	return y;
 }
-void Nave::MoverAbajo(int posicion)
-{
-	y += posicion;
+int Nave::obtenerW(){
+	return w;
+}
+int Nave::obtenerH(){
+	return h;
+}
+
+void Nave::ponerEn(int x, int y){
+	this->x=x;
+	this->y=y;
+
 }

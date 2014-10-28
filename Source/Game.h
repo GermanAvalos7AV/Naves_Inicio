@@ -1,36 +1,38 @@
+
 #include <SDL.h>
 #include <SDL_image.h>
 #include "Nave.h"
 
-class CGame
+
+class CGame 
 {
 public:
-
-
 	bool Start();
 	static CGame instanceGame;
 
 	CGame();
-	void Finalize();
-
-	enum Estado
-	{
+	void Finalize();  //ACT2: Mal, Aqui dejaste un error, tu codigo debe ser compilable correctamente.
+	enum Estado{
 		ESTADO_INICIANDO,
 		ESTADO_MENU,
 		ESTADO_JUGANDO,
-		ESTADO_TERMINANDO,
+		ESTADO_TERMINADO,
 		ESTADO_FINALIZADO,
-	};
+		};
 
 private:
 	void Iniciando();
-	
+	void MoverEnemigo();
+	bool esLimitePantalla(Nave *objeto, int bandera);
+	//unsigned int x;
 
-	Uint8 *keys;//esta variable nos servira para ver las teclas
-	SDL_Event event;//La variable event de tipo evento de SDL nos sirve para
+	Uint8 *keys;//esta variable para ver si determinadas teclas esta
+	SDL_Event event;//la variable event de tipo evento de sdl nosservira para
+
 	SDL_Surface *screen;
-	Nave * nave;
+	Nave *nave;
+	Nave *enemigo;
 	Estado estado;
 
-
+	float enemigoParabola;
 };
