@@ -10,6 +10,9 @@ Nave::Nave(SDL_Surface * screen, char * rutaImagen, int x, int y){
 
 	this->x=x; 
 	this->y=y; 
+	stepsActual=0;
+	posicionBrinco=0;
+	posicionActual=0;
 }
 Nave::~Nave(){
 	delete sprite;
@@ -38,3 +41,45 @@ void Nave::ponerEn(int x, int y){
 	this->y=y;
 
 }
+
+void Nave::Mover(int brinco, int puntoFinal){
+	if (posicionBrinco<=0){
+	posicionBrinco=brinco;
+	posicionFinal=puntoFinal;
+	}
+}
+
+void Nave::Actualizar(){
+	if(posicionBrinco>0){
+		if(posicionActual < posicionFinal){
+		MoverDerecha(posicionBrinco);
+		posicionActual++;
+	}else{
+			posicionBrinco=0;
+			posicionActual=0;
+			posicionFinal=0;
+			IncrementarStep();
+	}
+	}
+
+}
+
+void Nave::SetStep(int stepsFinal){
+	this->stepsFinal = stepsFinal;
+}
+
+void Nave::IncrementarStep(){
+	stepsActual++;
+	if(stepsActual >= stepsFinal)
+		stepsActual=0;
+}
+
+int Nave:: ObtenerStepActual(){
+	return stepsActual;
+}
+	bool Nave::IsRunningAnimacion(){
+		if(posicionBrinco==0)
+			return false;
+		else
+			return true;
+	}

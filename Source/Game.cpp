@@ -28,7 +28,8 @@ void CGame::Iniciando(){
 
 	nave = new Nave(screen, "../Data/MiNave.bmp",(WIDTH_SCREEN / 2)/*-(w/2)*/,(HEIGHT_SCREEN-80)/*-(h)*/);
 	enemigo = new Nave(screen, "../Data/enemigo.bmp",0,0);
-	enemigoParabola=-10.0f;
+	//enemigoParabola=-10.0f;
+	enemigo->SetStep(4);
 	///
 	//nave->CargarImagen("../Data/MiNave.bmp");
 }
@@ -77,8 +78,31 @@ bool CGame::Start()
 				////nave->PintarModulo (0,0,0,64,64);
 			SDL_FillRect(screen, NULL, 0x000000);
 			keys = SDL_GetKeyState(NULL);
+			enemigo->Actualizar();
 			MoverEnemigo();
 			if(keys[SDLK_RIGHT]&& !esLimitePantalla(nave,BORDE_DERECHO)){
+				
+				switch(enemigo->ObtenerStepActual()){
+				case 0:
+					
+					if(!enemigo->IsRunningAnimacion())
+						enemigo->Mover(2,WIDTH_SCREEN-enemigo->obtenerW());
+						enemigo->IncrementarStep();
+					enemigo->Mover(1,50);
+
+					break;
+				case 1:
+					enemigo->IncrementarStep();
+					break;
+				case 2:
+					if(!enemigo->IsRunningAnimacion())
+						enemigo->Mover(-2,WIDTH_SCREEN-enemigo->obtenerW());
+					
+					break;
+				case 3:
+					enemigo->IncrementarStep();
+					break;
+				}
 
 			//nave->PintarModulo(0,100,100);
 			nave->MoverDerecha(1);

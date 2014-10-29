@@ -8,13 +8,26 @@ int x;
 int y;
 int w;
 int h;
+int posicionActual;
+int posicionFinal;
+int posicionBrinco;
+int stepsActual;
+int stepsFinal;
 
 Sprite * sprite;
 public:
 	Nave(SDL_Surface * screen, char * rutaImagen, int x, int y);
 	~Nave();
+
 	void Pintar();
 	void MoverDerecha(int posicion);
+	void Mover(int brinco, int puntoFinal);
+	void SetStep(int stepsFinal);
+	void IncrementarStep();
+	int ObtenerStepActual();
+	void Actualizar();
+	bool IsRunningAnimacion();
+
 	int obtenerX();
 	int obtenerY();
 	int obtenerW();
