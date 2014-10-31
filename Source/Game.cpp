@@ -82,27 +82,7 @@ bool CGame::Start()
 			MoverEnemigo();
 			if(keys[SDLK_RIGHT]&& !esLimitePantalla(nave,BORDE_DERECHO)){
 				
-				switch(enemigo->ObtenerStepActual()){
-				case 0:
-					
-					if(!enemigo->IsRunningAnimacion())
-						enemigo->Mover(2,WIDTH_SCREEN-enemigo->obtenerW());
-						enemigo->IncrementarStep();
-					enemigo->Mover(1,50);
-
-					break;
-				case 1:
-					enemigo->IncrementarStep();
-					break;
-				case 2:
-					if(!enemigo->IsRunningAnimacion())
-						enemigo->Mover(-2,WIDTH_SCREEN-enemigo->obtenerW());
-					
-					break;
-				case 3:
-					enemigo->IncrementarStep();
-					break;
-				}
+				
 
 			//nave->PintarModulo(0,100,100);
 			nave->MoverDerecha(1);
@@ -149,7 +129,27 @@ bool CGame::esLimitePantalla(Nave *objeto, int bandera){
 void CGame::MoverEnemigo(){
 	//if(!esLimitePantalla(enemigo, BORDE_DERECHO))
 	//enemigo->MoverDerecha(1);
+	switch(enemigo->ObtenerStepActual()){
+				case 0:
+					
+					if(!enemigo->IsRunningAnimacion())
+						enemigo->Mover(1,WIDTH_SCREEN-enemigo->obtenerW());
+						//enemigo->IncrementarStep();
+					//enemigo->Mover(1,50);
 
-	enemigo->ponerEn(enemigoParabola*enemigoParabola,enemigoParabola);
-	enemigoParabola+=0.1f;
+					break;
+				case 1:
+					enemigo->IncrementarStep();
+					break;
+				case 2:
+					if(!enemigo->IsRunningAnimacion())
+						enemigo->Mover(-1,WIDTH_SCREEN-enemigo->obtenerW());
+					
+					break;
+				case 3:
+					enemigo->IncrementarStep();
+					break;
+				}
+	//enemigo->ponerEn(enemigoParabola*enemigoParabola,enemigoParabola);
+	//enemigoParabola+=0.1f;
 }

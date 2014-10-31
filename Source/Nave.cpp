@@ -50,8 +50,8 @@ void Nave::Mover(int brinco, int puntoFinal){
 }
 
 void Nave::Actualizar(){
-	if(posicionBrinco>0){
-		if(posicionActual < posicionFinal){
+	if(posicionBrinco!=0){
+		if(posicionActual <=posicionFinal){
 		MoverDerecha(posicionBrinco);
 		posicionActual++;
 	}else{
