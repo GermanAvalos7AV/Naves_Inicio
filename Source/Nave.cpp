@@ -55,10 +55,7 @@ void Nave::Actualizar(){
 		MoverDerecha(posicionBrinco);
 		posicionActual++;
 	}else{
-			posicionBrinco=0;
-			posicionActual=0;
-			posicionFinal=0;
-			IncrementarStep();
+			TerminarAnimacion();
 	}
 	}
 
@@ -82,4 +79,11 @@ int Nave:: ObtenerStepActual(){
 			return false;
 		else
 			return true;
+	}
+
+	void Nave:: TerminarAnimacion(){
+		posicionBrinco = 0;
+		posicionActual = 0;
+		posicionFinal = 0;
+		IncrementarStep();
 	}

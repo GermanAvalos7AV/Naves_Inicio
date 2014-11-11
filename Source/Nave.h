@@ -27,6 +27,7 @@ public:
 	int ObtenerStepActual();
 	void Actualizar();
 	bool IsRunningAnimacion();
+	void TerminarAnimacion(); // Fuerza para terminar la STEP actual de la nave
 
 	int obtenerX();
 	int obtenerY();

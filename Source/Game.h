@@ -31,8 +31,12 @@ private:
 
 	SDL_Surface *screen;
 	Nave *nave;
-	Nave *enemigo;
+	Nave **enemigoArreglo;
+
 	Estado estado;
 
 	float enemigoParabola;
+	unsigned int frames;
+	unsigned int tiempoFrameInicio;
+	unsigned int tiempoFrameFinal;
 };
